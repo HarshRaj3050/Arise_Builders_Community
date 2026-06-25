@@ -64,7 +64,7 @@ const ScrollFloat = ({
       ref={containerRef}
       className={`my-5 overflow-hidden text-white  ${containerClassName}`}>
       <span
-        className={`inline-block text-[clamp(12.8rem,32vw,24rem)] leading-[1.5] ${textClassName}`}>{splitText}</span>
+        className={`inline-block text-[9rem] sm:text-[clamp(12.8rem,32vw,24rem)] leading-[1.5] ${textClassName}`}>{splitText}</span>
     </h2>
   );
 };

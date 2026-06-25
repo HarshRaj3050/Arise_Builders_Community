@@ -20,6 +20,7 @@ import SplitText from "../components/SplitText";
 import { AppleCardsCarousel } from "@/components/AppleCardsCarousel";
 import ScrollFloat from "../components/ScrollFloat";
 import Footer from "@/components/Footer";
+import NavBar from "@/components/NavBar";
 
 const handleAnimationComplete = () => {
   console.log("All letters have animated!");
@@ -159,193 +160,7 @@ export default function Home() {
   return (
     <>
       <div className="w-screen h-auto pb-15 md:pb-30 relative  bg-[rgb(242,237,233)] text-black  rounded-t-2xl">
-        <div className="fixed w-full z-20 rounded-t-2xl">
-          <div className=" bg-black text-white h-9  flex justify-between items-center px-5 md:px-26 z-0">
-            <div className="flex gap-4 ">
-              <span>
-                <a
-                  href="https://www.linkedin.com/company/arise-builders-community/posts/?feedView=all"
-                  target="_blank"
-                >
-                  <li
-                    onMouseEnter={handleEnter}
-                    onMouseLeave={handleLeave}
-                    className="h-5 overflow-hidden cursor-pointer"
-                  >
-                    <div className="nav-text ">
-                      <div className="p-1">
-                        <FaLinkedin />
-                      </div>
-                      <div className="p-1 text-[#CAF291]">
-                        <FaLinkedin />
-                      </div>
-                    </div>
-                  </li>
-                </a>
-              </span>
-              <span>
-                <a href="#" target="_blank">
-                  <li
-                    onMouseEnter={handleEnter}
-                    onMouseLeave={handleLeave}
-                    className="h-5 overflow-hidden cursor-pointer"
-                  >
-                    <div className="nav-text ">
-                      <div className="p-1">
-                        <FaInstagram />
-                      </div>
-                      <div className="p-1 text-[#CAF291]">
-                        <FaInstagram />
-                      </div>
-                    </div>
-                  </li>
-                </a>
-              </span>
-            </div>
-            <div className="cursor-pointer">Arise Builder Community</div>
-          </div>
-          <div
-            ref={navBar}
-            className="z-50 w-full bg-[rgb(242,237,233)] rounded-t-3xl"
-          >
-            <nav className="flex justify-between w-full h-15 pt-6 font-oswald font-semibold text-[18px] relative">
-              {/* ── DESKTOP: Left links ── */}
-              <div className="hidden md:flex w-1/3">
-                <ul className="flex w-full justify-center gap-6 lg:gap-15 h-full items-center">
-                  <li
-                    onMouseEnter={handleEnter}
-                    onMouseLeave={handleLeave}
-                    className="h-5 overflow-hidden cursor-pointer"
-                  >
-                    <div className="nav-text leading-[1.1]">
-                      <div>
-                        <Link href="/">HOME</Link>
-                      </div>
-                      <div>
-                        <Link href="/">HOME</Link>
-                      </div>
-                    </div>
-                  </li>
-                  <li
-                    onMouseEnter={handleEnter}
-                    onMouseLeave={handleLeave}
-                    className="h-5 overflow-hidden cursor-pointer"
-                  >
-                    <div className="nav-text leading-[1.1]">
-                      <div>
-                        <Link href="/about">ABOUT</Link>
-                      </div>
-                      <div>
-                        <Link href="/about">ABOUT</Link>
-                      </div>
-                    </div>
-                  </li>
-                  <li
-                    onMouseEnter={handleEnter}
-                    onMouseLeave={handleLeave}
-                    className="h-5 overflow-hidden cursor-pointer"
-                  >
-                    <div className="nav-text leading-[1.1]">
-                      <div>
-                        <Link href="/teams">TEAMS</Link>
-                      </div>
-                      <div>
-                        <Link href="/teams">TEAMS</Link>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-
-              {/* ── Logo (always visible, centered on desktop / left on mobile) ── */}
-              <div className="flex w-1/3 md:justify-center justify-start h-full items-center">
-                <Image src={ariseLogo} className="w-35 pb-1" alt="logo" />
-              </div>
-
-              {/* ── DESKTOP: Right links ── */}
-              <div className="hidden md:flex w-1/3">
-                <ul className="flex w-full justify-center h-full items-center gap-6 lg:gap-15">
-                  <li
-                    onMouseEnter={handleEnter}
-                    onMouseLeave={handleLeave}
-                    className="h-5 overflow-hidden cursor-pointer"
-                  >
-                    <div className="nav-text leading-[1.1]">
-                      <div>EVENT & NEWS</div>
-                      <div>EVENT & NEWS</div>
-                    </div>
-                  </li>
-                  <div className="bg-pink-300 px-6 py-2 border-2 text-black rounded-4xl">
-                    <li
-                      onMouseEnter={handleEnter}
-                      onMouseLeave={handleLeave}
-                      className="h-5 overflow-hidden cursor-pointer"
-                    >
-                      <div className="nav-text leading-[1.1]">
-                        <div>JOIN US</div>
-                        <div>JOIN US</div>
-                      </div>
-                    </li>
-                  </div>
-                </ul>
-              </div>
-
-              {/* ── MOBILE: Hamburger button ── */}
-              <div className="flex md:hidden w-1/3 justify-end items-center px-10">
-                <button
-                  onClick={() => setMenuOpen(!menuOpen)}
-                  className="flex flex-col justify-center items-center gap-1.25 w-8 h-8 cursor-pointer"
-                  aria-label="Toggle menu"
-                >
-                  <span
-                    className={`block w-6 h-0.5 bg-current transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-1.75" : ""}`}
-                  />
-                  <span
-                    className={`block w-6 h-0.5 bg-current transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}
-                  />
-                  <span
-                    className={`block w-6 h-0.5 bg-current transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-1.75" : ""}`}
-                  />
-                </button>
-              </div>
-
-              {/* ── MOBILE: Dropdown menu ── */}
-              {menuOpen && (
-                <div className="md:hidden absolute top-full left-0 w-full bg-white z-50 shadow-lg py-6 flex flex-col items-center gap-6 font-oswald font-semibold text-[18px]">
-                  {["HOME", "ABOUT", "TEAMS", "EVENT & NEWS"].map((item) => (
-                    <li
-                      key={item}
-                      className="list-none h-5 overflow-hidden cursor-pointer"
-                      onMouseEnter={handleEnter}
-                      onMouseLeave={handleLeave}
-                    >
-                      <div className="nav-text leading-[1.1]">
-                        <div>{item}</div>
-                        <div>{item}</div>
-                      </div>
-                    </li>
-                  ))}
-                  <div className="bg-pink-300 px-6 py-2 border-2 text-black rounded-4xl">
-                    <li
-                      className="list-none h-5 overflow-hidden cursor-pointer"
-                      onMouseEnter={handleEnter}
-                      onMouseLeave={handleLeave}
-                    >
-                      <div className="nav-text leading-[1.1]">
-                        <div>JOIN US</div>
-                        <div>JOIN US</div>
-                      </div>
-                    </li>
-                  </div>
-                </div>
-              )}
-            </nav>
-
-            <div className="w-full flex justify-center">
-              <div className="w-full mx-14  border-b-2 pt-5"></div>
-            </div>
-          </div>
-        </div>
+        <NavBar></NavBar>
 
         <div className="w-full bg-black h-15">
           <div className="w-full bg-black fixed h-18 z-11"> hello</div>
@@ -453,7 +268,9 @@ export default function Home() {
         </div>
       </div>
       <div className="bg-black h-100 w-full"></div>
-      <div className="bg-[rgb(242,237,233)] h-250 w-full rounded-t-4xl ">
+
+      {/* Innovative & Tech solutions */}
+      <div className="bg-[rgb(242,237,233)] h-170 md:h-250 w-full rounded-t-4xl ">
         <div className="text-black text-7xl font-bold font-bebas w-full flex justify-center flex-col items-center pt-25">
           <h1>
             Innovative <span className="text-pink-300">Tech</span>
@@ -465,11 +282,12 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="relative h-160 overflow-hidden ">
+      {/* Footer */}
+      <div className="relative md:h-160 h-230 overflow-hidden ">
         <Footer className="" />
 
        
-        <div className="absolute top-90 w-full flex justify-center ">
+        <div className="absolute md:top-90 sm:top-180 top-190 w-full flex justify-center ">
           <ScrollFloat
             animationDuration={1}
             ease="back.inOut(2)"

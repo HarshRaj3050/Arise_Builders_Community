@@ -2,8 +2,8 @@
 
 export default function Footer() {
   return (
-    <footer className=" bg-black text-white px-6 md:px-30 pt-20">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-14">
+    <footer className=" bg-black text-white h-auto px-6 md:px-30 pt-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-14">
         
         {/* Left Side */}
         <div className="space-y-8">
@@ -36,7 +36,8 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Menu */}
+        <div className="flex justify-around">
+          {/* Menu */}
         <div className="md:pl-20 flex flex-col items-center">
           <h3 className="text-2xl font-semibold mb-8">
             Menu
@@ -93,6 +94,9 @@ export default function Footer() {
             </li>
           </ul>
         </div>
+        </div>
+
+        
       </div>
     </footer>
   );
