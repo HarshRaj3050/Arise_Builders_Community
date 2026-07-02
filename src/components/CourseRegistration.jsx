@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { forwardRef, useState } from "react";
 import axios from "axios";
 import {
   User,
@@ -8,6 +8,7 @@ import {
   BookOpen,
   GraduationCap,
   Code2,
+  Link,
   Users,
   MessageSquare,
   Award,
@@ -15,7 +16,7 @@ import {
   Shield,
 } from "lucide-react";
 
-export default function CourseRegistration() {
+const CourseRegistration = forwardRef(function CourseRegistration(props, ref) {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -23,6 +24,8 @@ export default function CourseRegistration() {
     collegeRegNumber: "",
     college: "",
     branch: "",
+    linkedin: "",
+    github: "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -50,6 +53,8 @@ export default function CourseRegistration() {
         collegeRegNumber: "",
         college: "",
         branch: "",
+        linkedin: "",
+        github: ""
       });
     } catch (err) {
       setError(
@@ -61,7 +66,7 @@ export default function CourseRegistration() {
   };
 
   return (
-    <div className="min-h-screen text-white flex items-center justify-center px-6 py-12">
+    <div className="h-auto text-white flex items-center justify-center px-6 py-12">
       <div className="max-w-7xl w-full grid lg:grid-cols-2 gap-12">
         {/* Left Section */}
         <div className="flex flex-col justify-center">
@@ -108,9 +113,9 @@ export default function CourseRegistration() {
         </div>
 
         {/* Right Form */}
-        <div className="max-w-162.5 w-full h-240 lg:h-200 border border-blue-500/40 rounded-3xl p-6 lg:p-7 bg-[#050b18] shadow-[0_0_40px_rgba(59,130,246,0.08)]">
+        <div id="course-registration" className="scroll-mt-32 max-w-162.5 w-full h-auto lg:h-auto border border-blue-500/40 rounded-3xl p-6 lg:p-7 bg-[#050b18] shadow-[0_0_40px_rgba(59,130,246,0.08)]">
           {/* Header */}
-          <div className="flex items-center gap-3">
+          <div ref={ref} className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-full border border-blue-500/40 flex items-center justify-center">
               <User size={22} className="text-blue-400" />
             </div>
@@ -124,22 +129,8 @@ export default function CourseRegistration() {
 
           <div className="h-px bg-blue-500/40 my-4" />
 
-          {/* Success Message */}
-          {success && (
-            <div className="mb-4 px-4 py-3 rounded-lg bg-green-500/10 border border-green-500/30 text-green-400 text-sm">
-              🎉 Registration successful! We will be in touch soon.
-            </div>
-          )}
-
-          {/* Error Message */}
-          {error && (
-            <div className="mb-4 px-4 py-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-sm">
-              {error}
-            </div>
-          )}
-
           {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-3">
+          <form onSubmit={handleSubmit} className="space-y-3 mb-5">
             <InputField
               label="Full Name"
               name="fullName"
@@ -198,11 +189,31 @@ export default function CourseRegistration() {
               onChange={handleChange}
             />
 
+            {/* LinkedIn - text input */}
+            <InputField
+              label="Linkedin"
+              name="linkedin"
+              placeholder="LinkedIn profile link"
+              icon={<BookOpen size={18} />}
+              value={formData.linkedin}
+              onChange={handleChange}
+            />
+
+            {/* Github - text input */}
+            <InputField
+              label="Github"
+              name="github"
+              placeholder="Github profile link"
+              icon={<BookOpen size={18} />}
+              value={formData.github}
+              onChange={handleChange}
+            />
+
             {/* Submit Button */}
             <button
               type="submit"
               disabled={loading}
-              className="w-full h-12 rounded-lg bg-gradient-to-r from-blue-600 to-blue-500 text-base font-semibold hover:opacity-90 transition disabled:opacity-60 disabled:cursor-not-allowed"
+              className="w-full h-12 mt-2 rounded-lg bg-linear-to-r from-blue-600 to-blue-500 text-base font-semibold hover:opacity-90 transition disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {loading ? "Submitting..." : "Register Now →"}
             </button>
@@ -213,11 +224,27 @@ export default function CourseRegistration() {
               <span>Your information is secure and will not be shared.</span>
             </div>
           </form>
+
+          {/* Success Message */}
+          {success && (
+            <div className="mb-4 px-4 py-3 rounded-lg bg-green-500/10 border border-green-500/30 text-green-400 text-sm">
+              🎉 Registration successful! We will be in touch soon.
+            </div>
+          )}
+
+          {/* Error Message */}
+          {error && (
+            <div className="mb-4 px-4 py-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-sm">
+              {error}
+            </div>
+          )}
         </div>
       </div>
     </div>
   );
-}
+});
+
+export default CourseRegistration;
 
 function Feature({ icon, text }) {
   return (

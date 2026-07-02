@@ -52,14 +52,33 @@ const courseRegistrationSchema = new mongoose.Schema(
       trim: true,
       maxlength: [100, "Branch name must not exceed 100 characters"],
     },
+
+    linkedin: {
+      type: String,
+      required: [true, "LinkedIn is required"],
+      trim: true,
+      default: "",
+    },
+
+    github: {
+      type: String,
+      required: [true, "Github is required"],
+      trim: true,
+      default: "",
+    }
   },
   {
     timestamps: true,
   }
 );
 
-const CourseRegistration =
-  mongoose.models.CourseRegistration ||
-  mongoose.model("CourseRegistration", courseRegistrationSchema);
+if (mongoose.models.CourseRegistration) {
+  delete mongoose.models.CourseRegistration;
+}
+
+const CourseRegistration = mongoose.model(
+  "CourseRegistration",
+  courseRegistrationSchema
+);
 
 export default CourseRegistration;

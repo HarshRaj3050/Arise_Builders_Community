@@ -1,20 +1,33 @@
-'use client'
+"use client";
 import CourseCard from "@/components/CourseCard";
 import NavBar from "@/components/NavBar";
 import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import CourseRegistration from "@/components/CourseRegistration";
-import Footer from '@/components/Footer';
-import ScrollFloat from '@/components/ScrollFloat';
+import Footer from "@/components/Footer";
+import ScrollFloat from "@/components/ScrollFloat";
 
-const page = () => {
-
-    const stats = [
+const Page = () => {
+  const stats = [
     { value: "45", label: "Days" },
     { value: "100+", label: "Lectures" },
     { value: "1k+", label: "Questions" },
-    ];
+  ];
+
+  const scrollToContact = () => {
+    const section = document.getElementById("course-registration");
+    if (!section) return;
+
+    const navbarHeight = 120;
+    const topPosition =
+      section.getBoundingClientRect().top + window.scrollY - navbarHeight;
+
+    window.scrollTo({
+      top: topPosition,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div className="w-dvw h-auto">
@@ -34,8 +47,8 @@ const page = () => {
             startup building all inside one live Hindi couse
           </p>
         </div>
-        <div>
-          <CourseCard></CourseCard>
+        <div className="">
+          <CourseCard onJoinClick={scrollToContact}></CourseCard>
         </div>
       </div>
 
@@ -85,13 +98,11 @@ const page = () => {
         </div>
       </div>
 
-
-
-      <div className="min-h-auto bg-black flex items-center justify-center gap-3 md:gap-8 pb-20">
-      {stats.map((item, index) => (
-        <div
-          key={index}
-          className="
+      <div className="min-h-auto bg-black flex items-center justify-center gap-3 md:gap-8 pb-10">
+        {stats.map((item, index) => (
+          <div
+            key={index}
+            className="
             lg:w-70 lg:h-65
             md:w-50 md:h-50
             w-27 h-25
@@ -103,25 +114,48 @@ const page = () => {
             shadow-[0_0_30px_rgba(59,130,246,0.35)]
             transition-all duration-300
           "
+          >
+            <h2 className="lg:text-8xl md:text-7xl text-3xl font-bold text-blue-400 leading-none">
+              {item.value}
+            </h2>
+
+            <p className="md:mt-4 lg:text-5xl text-lg md:text-3xl font-medium text-blue-400">
+              {item.label}
+            </p>
+          </div>
+        ))}
+      </div>
+      <div className="flex justify-center pb-20">
+        <div
+          className="
+            lg:w-230 lg:h-65
+            md:w-165 md:h-50
+            w-87 h-25
+            rounded-2xl
+            md:rounded-[50px]
+            border-2 border-blue-500
+            bg-black
+            flex flex-col items-center justify-center
+            shadow-[0_0_30px_rgba(59,130,246,0.35)]
+            transition-all duration-300
+          "
         >
-          <h2 className="lg:text-8xl md:text-7xl text-3xl font-bold text-blue-400 leading-none">
-            {item.value}
+          <h2 className="lg:text-7xl md:text-5xl text-2xl font-bold text-blue-400 leading-none">
+            Funding Opportunity
           </h2>
 
-          <p className="md:mt-4 lg:text-5xl text-lg md:text-3xl font-medium text-blue-400">
-            {item.label}
+          <p className="md:mt-4 lg:text-3xl text-xs md:text-2xl font-medium text-blue-400 mt-2">
+            We fund projects if we believe they're worth investing in.
           </p>
         </div>
-      ))}
-    </div>
+      </div>
 
-    <CourseRegistration></CourseRegistration>
+      <CourseRegistration></CourseRegistration>
 
-    {/* Footer */}
+      {/* Footer */}
       <div className="relative md:h-160 h-230 overflow-hidden ">
         <Footer className="" />
 
-       
         <div className="absolute md:top-90 sm:top-180 top-190 w-full flex justify-center ">
           <ScrollFloat
             animationDuration={1}
@@ -139,4 +173,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

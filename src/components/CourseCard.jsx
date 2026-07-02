@@ -67,48 +67,39 @@ function CloudIcon() {
   );
 }
 
-export default function CourseCard() {
+export default function CourseCard({ onJoinClick }) {
   return (
     <div
       className="
-        md:w-[430px]
+        relative
+        z-10
         w-[350px]
+        md:w-[430px]
         rounded-[20px]
         border border-[#2b4f73]
         px-[18px]
         pt-[22px]
         pb-[18px]
+        bottom-5
         text-[#e3efff]
         bg-[linear-gradient(180deg,#1e4f8a_0%,#14365f_12%,#0d1f36_20%,#070d16_30%,#05070a_100%)]
       "
     >
-      {/* Pills */}
       <div className="mb-[18px] flex flex-wrap gap-[7px]">
         {pills.map((pill) => (
           <div
             key={pill.label}
-            className="
-              flex items-center gap-1
-              rounded-full
-              border border-[#2a3d30]
-              bg-[#16231b]
-              px-[11px]
-              py-[5px]
-              text-[12px]
-            "
+            className="flex items-center gap-1 rounded-full border border-[#2a3d30] bg-[#16231b] px-[11px] py-[5px] text-[12px]"
           >
-            <span className="text-white">✦</span>
+            <span>✦</span>
             <span className="text-blue-500">{pill.label}:</span>
-            <span className="font-semibold text-slate-100">
-              {pill.value}
-            </span>
+            <span className="font-semibold">{pill.value}</span>
           </div>
         ))}
       </div>
 
-      {/* Feature Rows */}
-      <div className="mb-[10px] flex items-center gap-[10px] text-[13.5px] text-[#d4e4da]">
-        <div className="flex h-[26px] w-[26px] flex-shrink-0 items-center justify-center rounded-full border border-sky-500 bg-black">
+      <div className="mb-[10px] flex items-center gap-[10px]">
+        <div className="flex h-[26px] w-[26px] items-center justify-center rounded-full border border-sky-500">
           <UserIcon />
         </div>
         <span>
@@ -116,8 +107,8 @@ export default function CourseCard() {
         </span>
       </div>
 
-      <div className="mb-[10px] flex items-center gap-[10px] text-[13.5px] text-[#d4e4da]">
-        <div className="flex h-[26px] w-[26px] flex-shrink-0 items-center justify-center rounded-full border border-sky-500 bg-black">
+      <div className="mb-[10px] flex items-center gap-[10px]">
+        <div className="flex h-[26px] w-[26px] items-center justify-center rounded-full border border-sky-500">
           <CloudIcon />
         </div>
         <span>
@@ -125,23 +116,18 @@ export default function CourseCard() {
         </span>
       </div>
 
-      {/* Divider */}
       <div className="my-4 flex items-center gap-2">
         <div className="h-px flex-1 bg-blue-600" />
-        <span className="whitespace-nowrap text-[11px] text-blue-500">
+        <span className="text-[11px] text-blue-500">
           The Next Big Thing+
         </span>
         <div className="h-px flex-1 bg-blue-600" />
       </div>
 
-      {/* Checklist */}
-      <div className="space-y-[11px]">
+      <div className="space-y-3">
         {features.map((item) => (
-          <div
-            key={item}
-            className="flex items-start gap-[10px] text-[13.5px] leading-[1.4] text-[#ccddd5]"
-          >
-            <div className="mt-[1px] flex h-[22px] w-[22px] flex-shrink-0 items-center justify-center rounded-full border-[1.5px] border-[#1a5faa] bg-[#0e2035]">
+          <div key={item} className="flex items-start gap-3">
+            <div className="flex h-[22px] w-[22px] items-center justify-center rounded-full border border-[#1a5faa]">
               <CheckIcon />
             </div>
             <span>{item}</span>
@@ -149,42 +135,21 @@ export default function CourseCard() {
         ))}
       </div>
 
-      {/* Buttons */}
       <button
-        className="
-          mt-[18px]
-          mb-[9px]
-          w-full
-          rounded-[10px]
-          bg-[#1557c0]
-          py-[14px]
-          text-[15px]
-          font-semibold
-          text-white
-          transition-all
-          hover:bg-[#124aa3]
-        "
+        onClick={onJoinClick}
+        className="mt-5 mb-3 w-full rounded-lg bg-[#1557c0] py-3 font-semibold hover:bg-[#124aa3]"
       >
         Join Cohort Now →
       </button>
 
-      <button
-        className="
-          w-full
-          rounded-[10px]
-          border-[1.5px]
-          border-[#2a3d30]
-          bg-transparent
-          py-[13px]
-          text-[15px]
-          font-medium
-          text-[#d4e4da]
-          transition-all
-          hover:bg-white/5
-        "
+      <a
+        href="https://learnershakil.notion.site/full-stack-development"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block w-full rounded-lg border border-[#2a3d30] py-3 text-center hover:bg-white/5"
       >
         View Full Syllabus →
-      </button>
+      </a>
     </div>
   );
 }
