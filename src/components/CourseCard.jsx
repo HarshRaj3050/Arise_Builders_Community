@@ -10,7 +10,7 @@ const features = [
 
 const pills = [
   { label: "Schedule", value: "Mon-Sat (8:30 PM)" },
-  { label: "Certificate", value: "Yes" },
+
   { label: "Language", value: "Hinglish" },
   { label: "Class", value: "Live Classes" },
 ];
@@ -112,7 +112,7 @@ export default function CourseCard({ onJoinClick }) {
           <CloudIcon />
         </div>
         <span>
-          <strong>Certification</strong> Included
+          Classes Starting from <strong></strong>11<sup>th</sup> july 2026<strong/>
         </span>
       </div>
 

@@ -6,10 +6,10 @@ export async function POST(req) {
 
   try {
     const body = await req.json();
-    const { fullName, email, phone, collegeRegNumber, college, branch, linkedin, github } = body;
+    const { fullName, email, phone, collegeRegNumber, college, branch, linkedin, github, reason } = body;
 
     // Basic required field check
-    if (!fullName || !email || !phone || !collegeRegNumber || !college || !branch || !linkedin || !github) {
+    if (!fullName || !email || !phone || !collegeRegNumber || !college || !branch || !linkedin || !github || !reason) {
       return Response.json(
         { message: "All fields are required." },
         { status: 400 }
@@ -43,7 +43,8 @@ export async function POST(req) {
       college,
       branch,
       linkedin,
-      github
+      github,
+      reason
     });
 
     return Response.json(

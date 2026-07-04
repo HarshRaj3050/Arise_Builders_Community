@@ -10,7 +10,7 @@ import ScrollFloat from "@/components/ScrollFloat";
 
 const Page = () => {
   const stats = [
-    { value: "45", label: "Days" },
+    { value: "60", label: "Days" },
     { value: "100+", label: "Lectures" },
     { value: "1k+", label: "Questions" },
   ];
@@ -36,19 +36,21 @@ const Page = () => {
       </div>
 
       {/* course header */}
-      <div className="w-full flex justify-center lg:justify-between items-center flex-col lg:flex-row lg:gap-0 gap-10 text-white pt-40 pb-20 lg:px-20 ">
-        <div className="lg:w-10/12 flex  flex-col gap-8 lg:gap-4">
-          <h1 className="md:text-[3.8rem] text-[3rem] lg:text-start text-center leading-14 md:leading-17 font-bold">
-            Job-Ready AI Powered Course
-          </h1>
-          <p className="lg:pr-30 px-8 lg:px-0">
-            Build real scalable products used by thousands of users, learn AI
-            engineering, full stack development, DevOps, system design, and
-            startup building all inside one live Hindi couse
-          </p>
-        </div>
-        <div className="">
-          <CourseCard onJoinClick={scrollToContact}></CourseCard>
+      <div className="w-full flex justify-center items-center  pt-40 pb-20 lg:px-20 ">
+        <div className="max-w-7xl flex justify-between items-center flex-col lg:flex-row lg:gap-0 gap-10 text-white">
+          <div className="lg:w-10/12 flex  flex-col gap-8 lg:gap-4">
+            <h1 className="md:text-[3.8rem] text-[3rem] lg:text-start text-center leading-14 md:leading-17 font-bold">
+              Job-Ready AI Powered Course
+            </h1>
+            <p className="lg:pr-30 px-8 lg:px-0">
+              Build real scalable products used by thousands of users, learn AI
+              engineering, full stack development, DevOps, system design, and
+              startup building all inside one live Hindi couse
+            </p>
+          </div>
+          <div className="">
+            <CourseCard onJoinClick={scrollToContact}></CourseCard>
+          </div>
         </div>
       </div>
 

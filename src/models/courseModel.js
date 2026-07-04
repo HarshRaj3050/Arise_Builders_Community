@@ -65,7 +65,15 @@ const courseRegistrationSchema = new mongoose.Schema(
       required: [true, "Github is required"],
       trim: true,
       default: "",
+    },
+
+    reason: {
+      type: String,
+      required: [true, "Why should you join"],
+      trim: true,
+      default: "",
     }
+
   },
   {
     timestamps: true,

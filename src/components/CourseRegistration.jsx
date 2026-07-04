@@ -14,6 +14,7 @@ import {
   Award,
   CalendarDays,
   Shield,
+  Blocks,
 } from "lucide-react";
 
 const CourseRegistration = forwardRef(function CourseRegistration(props, ref) {
@@ -26,6 +27,7 @@ const CourseRegistration = forwardRef(function CourseRegistration(props, ref) {
     branch: "",
     linkedin: "",
     github: "",
+    reason: "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -54,7 +56,8 @@ const CourseRegistration = forwardRef(function CourseRegistration(props, ref) {
         college: "",
         branch: "",
         linkedin: "",
-        github: ""
+        github: "",
+        reason: ""
       });
     } catch (err) {
       setError(
@@ -96,7 +99,7 @@ const CourseRegistration = forwardRef(function CourseRegistration(props, ref) {
             <Feature icon={<Code2 size={22} />} text="Full Stack + DevOps + System Design" />
             <Feature icon={<Users size={22} />} text="Mentorship + Career Guidance" />
             <Feature icon={<MessageSquare size={22} />} text="Discord Community Access" />
-            <Feature icon={<Award size={22} />} text="Certification Included" />
+            <Feature icon={<Award size={22} />} text="Startup Mentorship + Funding Opportunity" />
           </div>
 
           <div className="mt-12 max-w-md border border-blue-500/20 rounded-2xl p-6 bg-white/[0.02]">
@@ -106,7 +109,7 @@ const CourseRegistration = forwardRef(function CourseRegistration(props, ref) {
               </div>
               <div>
                 <h4 className="font-semibold text-xl">Classes Start Soon</h4>
-                <p className="text-blue-400 mt-1">Mon-Sat (8:30 PM) From 1 July</p>
+                <p className="text-blue-400 mt-1">Mon-Sat (8:30 PM) From 11<sup>th</sup> July <br/> Last Date Register 9<sup>th</sup> july</p>
               </div>
             </div>
           </div>
@@ -186,6 +189,16 @@ const CourseRegistration = forwardRef(function CourseRegistration(props, ref) {
               placeholder="e.g. Computer Science, Mechanical, etc."
               icon={<BookOpen size={18} />}
               value={formData.branch}
+              onChange={handleChange}
+            />
+
+            {/* reason - text input */}
+            <InputField
+              label="Why Join Us?"
+              name="reason"
+              placeholder="Reasons to Join Us"
+              icon={<Blocks size={18} />}
+              value={formData.reason}
               onChange={handleChange}
             />
 
