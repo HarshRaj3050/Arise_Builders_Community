@@ -99,10 +99,10 @@ const CourseRegistration = forwardRef(function CourseRegistration(props, ref) {
             <Feature icon={<Code2 size={22} />} text="Full Stack + DevOps + System Design" />
             <Feature icon={<Users size={22} />} text="Mentorship + Career Guidance" />
             <Feature icon={<MessageSquare size={22} />} text="Discord Community Access" />
-            <Feature icon={<Award size={22} />} text="Startup Mentorship + Funding Opportunity" />
+            <Feature icon={<Award size={22} />} text="Funding Opportunity" />
           </div>
 
-          <div className="mt-12 max-w-md border border-blue-500/20 rounded-2xl p-6 bg-white/[0.02]">
+          <div className="mt-12 max-w-md border border-blue-500/20 rounded-2xl p-6 bg-white/2">
             <div className="flex items-center gap-4">
               <div className="w-14 h-14 rounded-xl border border-blue-500/30 flex items-center justify-center">
                 <CalendarDays className="text-blue-400" />

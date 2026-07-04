@@ -102,7 +102,7 @@ const Page = () => {
 
       <div className="min-h-auto bg-black flex items-center justify-center gap-3 md:gap-8 pb-10">
         {stats.map((item, index) => (
-          <div
+          <motion.div
             key={index}
             className="
             lg:w-70 lg:h-65
@@ -124,7 +124,7 @@ const Page = () => {
             <p className="md:mt-4 lg:text-5xl text-lg md:text-3xl font-medium text-blue-400">
               {item.label}
             </p>
-          </div>
+          </motion.div>
         ))}
       </div>
       <div className="flex justify-center pb-20">

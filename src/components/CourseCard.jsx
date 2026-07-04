@@ -2,7 +2,7 @@ import React from "react";
 
 const features = [
   "100+ hours of live training",
-  "Learn AI + Full Stack + DevOps + System Design",
+  "Full Stack + DevOps + System Design",
   "Startup Mentorship + Funding Opportunity",
   "Discord Community Access - Peer Learning",
   "Mentorship + Career Guidance",
