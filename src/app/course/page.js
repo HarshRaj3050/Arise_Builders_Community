@@ -32,7 +32,7 @@ const Page = () => {
   return (
     <div className="w-dvw h-auto">
       <div className="text-black">
-        <NavBar className=""></NavBar>
+        <NavBar className="bg-sky-500"></NavBar>
       </div>
 
       {/* course header */}

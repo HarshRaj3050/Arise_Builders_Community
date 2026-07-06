@@ -95,10 +95,10 @@ const CourseRegistration = forwardRef(function CourseRegistration(props, ref) {
           </p>
 
           <div className="mt-6 space-y-2">
-            <Feature icon={<GraduationCap size={22} />} text="100+ hours of live training" />
+            <Feature icon={<GraduationCap size={22} />} text="200+ hours of live training" />
             <Feature icon={<Code2 size={22} />} text="Full Stack + DevOps + System Design" />
             <Feature icon={<Users size={22} />} text="Mentorship + Career Guidance" />
-            <Feature icon={<MessageSquare size={22} />} text="Discord Community Access" />
+            <Feature icon={<MessageSquare size={22} />} text="WhatsApp Community Access" />
             <Feature icon={<Award size={22} />} text="Funding Opportunity" />
           </div>
 
@@ -109,7 +109,7 @@ const CourseRegistration = forwardRef(function CourseRegistration(props, ref) {
               </div>
               <div>
                 <h4 className="font-semibold text-xl">Classes Start Soon</h4>
-                <p className="text-blue-400 mt-1">Mon-Sat (8:30 PM) From 11<sup>th</sup> July <br/> Last Date Register 9<sup>th</sup> july</p>
+                <p className="text-blue-400 mt-1">Monday-Sunday From 11<sup>th</sup> July <br/> Last Date Register 10<sup>th</sup> july</p>
               </div>
             </div>
           </div>
@@ -154,10 +154,10 @@ const CourseRegistration = forwardRef(function CourseRegistration(props, ref) {
                 onChange={handleChange}
               />
               <InputField
-                label="Phone Number"
+                label="Mobile Number"
                 name="phone"
                 type="tel"
-                placeholder="Enter your phone number"
+                placeholder="Enter your mobile number"
                 icon={<Phone size={18} />}
                 value={formData.phone}
                 onChange={handleChange}
@@ -184,9 +184,9 @@ const CourseRegistration = forwardRef(function CourseRegistration(props, ref) {
 
             {/* Branch - text input */}
             <InputField
-              label="Branch"
+              label="Branch + Year"
               name="branch"
-              placeholder="e.g. Computer Science, Mechanical, etc."
+              placeholder="e.g. Computer Science - 2nd year"
               icon={<BookOpen size={18} />}
               value={formData.branch}
               onChange={handleChange}
@@ -194,9 +194,9 @@ const CourseRegistration = forwardRef(function CourseRegistration(props, ref) {
 
             {/* reason - text input */}
             <InputField
-              label="Why Join Us?"
+              label="Why Select You?"
               name="reason"
-              placeholder="Reasons to Join Us"
+              placeholder="Reasons to Select you"
               icon={<Blocks size={18} />}
               value={formData.reason}
               onChange={handleChange}

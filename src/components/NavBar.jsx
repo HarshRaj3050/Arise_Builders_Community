@@ -11,6 +11,8 @@ import ariseLogo from "../../public/image/arise_logo.png";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 
+import { usePathname } from "next/navigation";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const handleAnimationComplete = () => {
@@ -149,12 +151,28 @@ export default function NavBar() {
   };
 
   const navItems = [
-  { name: "HOME", href: "/" },
-  { name: "ABOUT", href: "/about" },
-  { name: "TEAMS", href: "/teams" },
-  { name: "COURSE & BOOTCAMP", href: "/course" },
-];
+    { name: "HOME", href: "/" },
+    { name: "ABOUT", href: "/about" },
+    { name: "TEAMS", href: "/teams" },
+    { name: "COURSE & BOOTCAMP", href: "/course" },
+  ];
 
+  const pathname = usePathname();
+
+  const navBarColor = [
+    {
+      path: "/",
+      color: "bg-[rgb(242,237,233)] text-black",
+    },
+    {
+      path: "/course",
+      color: "bg-blue-500 text-black",
+    },
+  ];
+
+  const currentNavColor =
+    navBarColor.find((item) => item.path === pathname)?.color ||
+    "bg-white text-black";
 
   return (
     <div className="fixed w-full z-20 rounded-t-2xl">
@@ -203,8 +221,9 @@ export default function NavBar() {
         <div className="cursor-pointer">Arise Builder Community</div>
       </div>
       <div
+        id="navColor"
         ref={navBar}
-        className="z-50 w-full bg-[rgb(242,237,233)] rounded-t-3xl"
+        className={`z-50 w-full rounded-t-3xl transition-colors duration-300 ${currentNavColor}`}
       >
         <nav className="flex justify-between w-full h-15 pt-6 font-oswald font-semibold text-[18px] relative">
           {/* ── DESKTOP: Left links ── */}
@@ -313,7 +332,7 @@ export default function NavBar() {
 
           {/* ── MOBILE: Dropdown menu ── */}
           {menuOpen && (
-            <div className="md:hidden absolute top-full left-0 w-full bg-white z-50 shadow-lg py-6 flex flex-col items-center gap-6 font-oswald font-semibold text-[18px]">
+            <div className="md:hidden absolute top-full mt-4 left-0 w-full bg-white z-50 shadow-lg py-6 flex flex-col items-center gap-6 font-oswald font-semibold text-[18px]">
               {navItems.map((item) => (
                 <li
                   key={item.name}

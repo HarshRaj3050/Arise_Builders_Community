@@ -1,15 +1,15 @@
 import React from "react";
 
 const features = [
-  "100+ hours of live training",
+  "200+ hours of live training",
   "Full Stack + DevOps + System Design",
   "Startup Mentorship + Funding Opportunity",
-  "Discord Community Access - Peer Learning",
+  "WhatsApp Community Access - Peer Learning",
   "Mentorship + Career Guidance",
 ];
 
 const pills = [
-  { label: "Schedule", value: "Mon-Sat (8:30 PM)" },
+  { label: "Schedule", value: "Monday-Sunday" },
 
   { label: "Language", value: "Hinglish" },
   { label: "Class", value: "Live Classes" },
