@@ -200,7 +200,7 @@ export default function NavBar() {
             </a>
           </span>
           <span>
-            <a href="#" target="_blank">
+            <a href="https://www.instagram.com/arise_builders_community/" target="_blank">
               <li
                 onMouseEnter={handleEnter}
                 onMouseLeave={handleLeave}
